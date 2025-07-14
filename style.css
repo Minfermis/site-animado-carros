@@ -1,0 +1,298 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Gothic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+}
+
+:root {
+  /* GRADE DE CORES DE FUNDO */
+  --gradiente1: radial-gradient(#601c80c5, #6210b4);
+  --cor-fundo1: #000;
+  --cor-fundo2: #beff1b;
+
+  /* GRADE DE CORES */
+  --cor1: #791fd3;
+
+  /* GRADE DE COR DE FONTE */
+  --cor-texto1: #fff;
+  --cor-texto2: #d9d9d9;
+  --cor-texto3: #000;
+
+  /* TAMANHO DA FONTE */
+  --font-size1: 16px;
+  --font-size2: 12px;
+  --font-size: 4em;
+  --fonte-size3: 12px;
+  --font-car-information: 5em;
+  --font-marca: 1.5em;
+
+  /* PESO DA FONTE (ESPESSURA) */
+  --peso-fino: 100;
+  --peso-normal: 400;
+  --peso-negrito: 700;
+  --peso-titulo: 800;
+
+  /* VARIAVEIS COM AS FONTES */
+
+  --fonte-porsche: "Barlow Condensed", sans-serif;
+  --fonte-ferrari: "Bebas Neue", sans-serif;
+  --fonte-lamborghini: "Orbitron", sans-serif;
+  --fonte-padrao: "Roboto", "Segoe UI", sans-serif;
+  --fonte-number: "League Gothic", sans-serif;
+}
+
+/* ESTILO TELA CHEIA */
+body {
+  background-color: var(--cor-fundo1);
+  color: var(--cor-texto1);
+  font-size: var(--font-size1);
+  overflow: hidden;
+  font-family: var(--fonte-padrao);
+}
+
+header {
+  position: fixed;
+  width: 90vw;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 600px;
+  gap: 100px;
+  z-index: 2;
+
+  & img {
+    width: 250px;
+  }
+
+  & nav {
+    & ul {
+      display: grid;
+      grid-template-columns: repeat(3, 200px);
+    }
+  }
+}
+
+section {
+  background-image: var(--gradiente1);
+  height: 100vh;
+  position: relative;
+
+  & .list {
+    width: 70vw;
+    height: 100%;
+    margin: auto;
+    position: relative;
+
+    & .item {
+      position: absolute;
+      inset: 0;
+
+      & .car-img {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 62%;
+
+        & img {
+          width: 100%;
+          transform: rotate(-30deg);
+        }
+      }
+
+      & .content {
+        position: absolute;
+        right: 100px;
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        gap: 20px;
+
+        & .car-information {
+          font-weight: var(--peso-negrito);
+          font-size: var(--font-marca);
+        }
+
+        & h2 {
+          font-size: var(--font-car-information);
+          font-family: var(--fonte-porsche);
+          line-height: 1em;
+        }
+
+        & .description {
+          color: var(--cor-texto2);
+          font-size: var(--font-size2);
+          text-align: right;
+          max-width: 400px;
+        }
+
+        & .information {
+          border-radius: 30px;
+          height: 35px;
+          width: 120px;
+          text-transform: uppercase;
+          border: 2px solid var(--gradiente1);
+          background-color: var(--cor-fundo2);
+          color: var(--cor-texto3);
+          cursor: pointer;
+          font-weight: var(--peso-negrito);
+        }
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 200px;
+      width: 100%;
+      top: 50%;
+      border-top: 1px solid var(--cor-texto1);
+    }
+  }
+
+  .arrows {
+    width: 70vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25px);
+    display: flex;
+    justify-content: space-between;
+
+    & button:nth-child(1) {
+      & img {
+        transform: scaleX(-1);
+      }
+    }
+
+    & button {
+      top: 60%;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--cor-fundo2);
+      }
+
+      & img {
+        width: 18px;
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .indicators {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 200px;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 15px;
+
+    & .number {
+      font-size: var(--font-size);
+      font-family: var(--fonte-number);
+    }
+
+    & ul {
+      display: flex;
+      gap: 10px;
+
+      & li {
+        width: 40px;
+        height: 5px;
+        background-color: var(--cor-fundo2);
+        border-radius: 10px;
+        transition: 0.5s;
+      }
+
+      & .active {
+        background-color: var(--cor-texto1);
+      }
+    }
+  }
+}
+
+section {
+  & .list {
+    & .item {
+      transform: translateX(100vw);
+      transition: 0.5s;
+      opacity: 0;
+
+      & .car-img {
+        & img {
+          transform: rotate(0);
+          transition: 0.5s;
+          transition-delay: 0.3s;
+        }
+      }
+
+      & .content {
+        &.car-information,
+        h2,
+        .description,
+        .information {
+          transform: translateX(200px);
+          transition: 0.7s;
+          transition-delay: 0.3;
+          opacity: 0;
+        }
+
+        & h2 {
+          transition-delay: 0.5;
+        }
+
+        & .description {
+          transition-delay: 0.7;
+        }
+
+        & .information {
+          transition-delay: 0.9;
+        }
+      }
+    }
+
+    & .active {
+      transform: translateX(0);
+      transition: 0.5s;
+      opacity: 1;
+
+      & .car-img {
+        & img {
+          transform: rotate(-20deg);
+        }
+      }
+
+      & .content {
+        &.car-information,
+        h2,
+        .description,
+        .information {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
