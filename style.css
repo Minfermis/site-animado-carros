@@ -108,6 +108,18 @@ section {
           width: 100%;
           transform: rotate(-30deg);
         }
+
+        &::before {
+            content: '';
+            position: absolute;
+            background-color:#000000af ;
+            width: 90%;
+            height: 100px;
+            top: 130%;
+            left: 50px;
+            border: 50%;
+            filter: blur(50px)
+        }
       }
 
       & .content {
@@ -235,8 +247,10 @@ section {
 
 section {
   & .list {
+    --calculation: 1;
+
     & .item {
-      transform: translateX(100vw);
+      transform: translateX(calc(100vw * var(--calculation)));
       transition: 0.5s;
       opacity: 0;
 
@@ -253,7 +267,7 @@ section {
         h2,
         .description,
         .information {
-          transform: translateX(200px);
+          transform: translateXcalc(200px * var(--calculation));
           transition: 0.7s;
           transition-delay: 0.3;
           opacity: 0;
